@@ -1,0 +1,35 @@
+@import models.ResultRow
+@(list: List[ResultRow], elapsedTime:Long)
+
+@main("Xing: Coding challenge") {
+    <a name="Top"></a>
+    <h1><b>Top 100</b></h1>
+    Previous query duration: @elapsedTime ms <div style="float:right"> <a href="#Bot"><h4>Bottom of the page</h4></a></div>
+    <br><hr>
+
+    <br>
+    <table class="table table-condensed">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>title</th>
+                <th>Rating</th>
+                <th>Count</th>
+            </tr>
+        </thead>
+        <tbody>
+        @for(i<- 0 to list.length-1) {
+            <tr>
+                <td>@(i +1)</td>
+                <td>@list(i).movieTitle</td>
+                <td>@list(i).rating</td>
+                <td>@list(i).count</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+    <div style="float:right">
+        <a href="#Top"><h4>Top of the page</h4></a>
+    </div>
+        <a name="Bot"></a>
+}
